@@ -1,0 +1,28 @@
+brewblox:
+  url: https://brewpi/history/query/last_values            # URL of brewblox install
+  devices:                                                 # List of Brewblox "measurement" devices
+    - spark-one:
+        temp: "Ferment Beer Sensor/value[degC]"            # Every item is defined as with the brewfather variable as key
+        aux_temp: "Ferment Fridge Sensor/value[degC]"      # and the Breblox variable name as value
+        ext_temp: "Kamertemperatuur sensor/value[degC]"
+    - tilt:                                                # https://github.com/j616/brewblox-tilt
+        gravity: "Blue/Specific gravity"
+
+brewfather:
+  url: http://log.brewfather.net/stream?id=XXXXXXXXXXXXXX  # replace with your URL from brewfather settings page (Custom Stream)
+  interval: 0                                              # number of seconds between updates, minimum 900 seconds, 0 stop after run
+
+# Data to be submitted & defaults
+brewfatherdata:
+  name: F1               # Device name
+  temp: None             # Beer temp
+  aux_temp: None         # Fridge temp
+  ext_temp: None         # Room temp
+  temp_unit: C           # C, F, K
+  gravity: None          # Gravity
+  gravity_unit: G        # G, P
+  pressure: None         # Pressure
+  pressure_unit: None    # PSI, BAR, KPA
+  ph: None               # pH
+  comment: None          # comment
+  beer: None             # Beer name
